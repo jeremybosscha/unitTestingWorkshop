@@ -1,0 +1,39 @@
+<div class = "container">
+
+  <div class = "form" #contactForm>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email<b *ngIf="inputEmailObject.required">*</b> <span class = 'error'>{{errorMessages.email}}</span></label>
+        <input type="email" (keypress)="handleEmailValidity()" class="form-control" id="inputEmail4" placeholder="Email" [(ngModel)]="inputEmailObject.value">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Wachtwoord<b *ngIf="inputPassword.required">*</b> <span class = 'error'>{{errorMessages.password}}</span></label>
+        <input type="password" class="form-control" id="inputPassword4" (keypress)="handlePasswordStrength()" placeholder="Password" [(ngModel)]="inputPassword.value">
+        <div class = 'passwordStrength {{passwordStrengthClass}}'>&nbsp;</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress">Adres<b *ngIf="inputAddresss.required">*</b> <span class = 'error'>{{errorMessages.emailaddress}}</span></label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" [(ngModel)]="inputAddresss.value">
+    </div>
+    <div class="form-group">
+      <label for="inputAddress2">Adres 2<b *ngIf="inputAddress2.required">*</b></label>
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" [(ngModel)]="inputAddress2.value">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputCity">Stad<b *ngIf="inputCity.required">*</b> <span class = 'error'>{{errorMessages.city}}</span></label>
+        <input type="text" class="form-control" id="inputCity" [(ngModel)]="inputCity.value">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="inputZip">Postcode (1234 AB)<b *ngIf="inputZIP.required">*</b> <span class = 'error'>{{errorMessages.zip}}</span></label>
+        <input type="text" class="form-control" id="inputZip" [(ngModel)]="inputZIP.value" (keypress)="handleZipCodeValidity()">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Extra opmerkingen<b *ngIf="inputTextArea.required">*</b></label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="inputTextArea.value"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="submitForm(contactForm)">Account aanmaken</button>
+</div>
+</div>
